@@ -3,10 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>20241116layout01</title>
+    <title>이자리는 타이틀 들어옴</title>
     <link rel="stylesheet" href="./css/all.min.css">
+    <style>
+      /* 선택자 ! n번 척추  */
+      /* header top 선택자 선택 */
+      div.headerTop{}
+      div.headerTop>div.icons{}
+      div.headerTop>div.icons>i{}
+      div.headerTop>div.gnb{}
+      div.headerTop>div.gnb>div.menu{}
+
+      /* 헤더부분 선택자 전체 선택해주세요! */
+      div.header{}
+      div.header>div.logo{}
+      div.header>div.nav{}
+      div.header>div.nav>div.menu{}
+      div.header>div.nav>div.menu>i{}
+
+      /* 공통요소 */
+      div.content{}
+      div.content>div.header{}
+      div.content>div.header>div.title{}
+      div.content>div.header>div.subTitle{}
+      div.content>div.section{}
+      div.content>div.section>div.article{}
+      div.content>div.section>div.article>div.image{}
+      div.content>div.section>div.article>div.texts{}
+      div.content>div.section>div.article>div.texts>div.title{}
+      div.content>div.section>div.article>div.texts>div.note{}
+
+      /* 컨텐츠1 */
+      div.content.con1{}
+      div.content.con1>div.header{}
+      div.content.con1>div.header>div.title{}
+      div.content.con1>div.header>div.subTitle{}
+      div.content.con1>div.section{}
+      div.content.con1>div.section>div.artTop{}
+      div.content.con1>div.section>div.artTop>div.article{}
+      div.content.con1>div.section>div.artTop>div.article>div.image{}
+      div.content.con1>div.section>div.artTop>div.article>div.texts{}
+      div.content.con1>div.section>div.artTop>div.article>div.texts>div.title{}
+      div.content.con1>div.section>div.artTop>div.article>div.texts>div.subTitle{}
+      div.content.con1>div.section>div.artTop>div.article>div.texts>div.note{}
+      div.content.con1>div.section>div.artTop>div.article>div.texts>div.icons{}
+      div.content.con1>div.section>div.artTop>div.article>div.texts>div.icons>i{}
+      div.content.con1>div.section>div.artBottom{}
+      div.content.con1>div.section>div.artBottom>div.article{}
+      div.content.con1>div.section>div.artBottom>div.article>div.image{}
+      div.content.con1>div.section>div.artBottom>div.article>div.texts{}
+      div.content.con1>div.section>div.artBottom>div.article>div.texts>div.title{}
+      div.content.con1>div.section>div.artBottom>div.article>div.texts>div.note{}
+      div.content.con1>div.section>div.artBottom>div.article>div.texts>div.icons{}
+      div.content.con1>div.section>div.artBottom>div.article>div.texts>div.icons>i{}
+
+      /* 컨텐츠2 */
+      div.content.con2{}
+      div.content.con2>div.header{}
+      div.content.con2>div.header>div.title{}
+      div.content.con2>div.header>div.subTitle{}
+      div.content.con2>div.section{}
+      div.content.con2>div.section>div.article{}
+      div.content.con2>div.section>div.article>div.image{}
+      div.content.con2>div.section>div.article>div.texts{}
+      div.content.con2>div.section>div.article>div.texts>div.title{}
+      div.content.con2>div.section>div.article>div.texts>div.subTitle{}
+      div.content.con2>div.section>div.article>div.texts>div.note{}
+      div.content.con2>div.section>div.article>div.texts>div.button{}
+
+
+      /* 컨텐츠3 */
+    div.content.con3{}
+    div.content.con3>div.header{}
+    div.content.con3>div.header>div.title{}
+    div.content.con3>div.header>div.subTitle{}
+    div.content.con3>div.section{}
+    div.content.con3>div.section>div.article{}
+    div.content.con3>div.section>div.article>div.image{}
+    div.content.con3>div.section>div.article>div.texts{}
+    div.content.con3>div.section>div.article>div.texts>div.title{}
+    div.content.con3>div.section>div.article>div.texts>div.note{}
+
+
+    /* 푸터 */
+    div.footer{}
+    div.footer>div.logo{}
+    div.footer>div.text{}
+    div.footer>div.sns{}
+    div.footer>div.sns>i{}
+
+      
+        
+
+
+    </style>
 </head>
 <body>
+    클래스: .
+    아이디: #
+    
+   - headerTop 선택해보기 
+  
+
+
+
     <!-- 폰트어썸에서 찾아서 아이콘 넣어주세요!  -->
     <!-- 헤더탑 -->
     <div class="headerTop">
@@ -15,8 +115,19 @@
             <i class="fa-brands fa-css3"></i>
         </div>
         <div class="gnb">
-            <div class="menu">home</div>
-            <div class="menu">menu</div>
+            <div class="menu">
+                
+                <div>h</div>
+                <div>o</div>
+                <div>m</div>
+                <div>e</div>
+            </div>
+            <div class="menu">
+                <span>m</span>
+                <span>e</span>
+                <span>n</span>
+                <span>u</span>
+            </div>
             <div class="menu">portfolio</div>
         </div>
     </div>
@@ -28,17 +139,62 @@
             <div class="menu">about</div>
             <div class="menu">news</div>
             <div class="menu">portfolio</div>
-            <div class="menu"><i class="fa-solid fa-burger"></i></div>
+            <div class="menu">
+                <i class="fa-solid fa-burger"></i>
+            </div>
         </div>
    </div>
-   
+
    <!-- 컨텐츠1 -->
    <div class="content con1">
         <div class="header">
             <div class="title"></div>
             <div class="subTitle"></div>
         </div>
-        <div class="section"></div>
+        <div class="section">
+            <div class="artTop">
+                <div class="article">
+                    <div class="image"></div>
+                    <div class="texts">
+                        <div class="title">segment title</div>
+                        <div class="subtitle">Lorem ipsum dolor sit amet.</div>
+                        <div class="note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea modi laboriosam esse aliquid expedita quia non assumenda sed vel vero, voluptatum iste consectetur hic provident saepe asperiores distinctio ex dolore!</div>
+                        <div class="icons"></div>
+                    </div>
+                </div>
+                <div class="article">
+                    <div class="image"></div>
+                    <div class="texts">
+                    </div>
+                </div>
+            </div>
+            <div class="artBottom">
+                <div class="article">
+                    <div class="image"></div>
+                    <div class="text">
+                        <div class="title">segment title</div>
+                        <div class="note">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptas soluta quia quaerat tenetur repudiandae possimus ducimus praesentium blanditiis a repellat eum sapiente, et quis nostrum maiores inventore vero maxime!</div>
+                        <div class="icons"></div>
+                    </div>
+                </div>
+                <div class="article">
+                    <div class="image"></div>
+                    <div class="text">
+                        <div class="title">segment title</div>
+                        <div class="note">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptas soluta quia quaerat tenetur repudiandae possimus ducimus praesentium blanditiis a repellat eum sapiente, et quis nostrum maiores inventore vero maxime!</div>
+                        <div class="icons"></div>
+                    </div>
+                </div>
+                <div class="article">
+                    <div class="image"></div>
+                    <div class="text">
+                        <div class="title">segment title</div>
+                        <div class="note">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptas soluta quia quaerat tenetur repudiandae possimus ducimus praesentium blanditiis a repellat eum sapiente, et quis nostrum maiores inventore vero maxime!</div>
+                        <div class="icons"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
    </div>
    
    <!-- 컨텐츠2 -->
@@ -47,16 +203,55 @@
             <div class="title"></div>
             <div class="subTitle"></div>
         </div>
-        <div class="section"></div>
+        <div class="section">
+            <div class="article">
+                <div class="image"></div>
+                <div class="texts">
+                    <div class="title">segemt title</div>
+                    <div class="subTitle">Lorem ipsum dolor sit amet.</div>
+                    <div class="note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptatem asperiores dolore magni fugit laboriosam dolorem eius iusto eveniet aliquid. Repellendus commodi harum quos eveniet veritatis unde. Illo, quasi rerum?</div>
+                    <div class="button">button</div>
+                </div>
+            </div>
+        </div>
    </div>
    
    <!-- 컨텐츠3 -->
    <div class="content con3">
         <div class="header">
-            <div class="title"></div>
-            <div class="subTitle"></div>
+            <div class="title">content title</div>
+            <div class="subTitle">Lorem ipsum dolor sit amet.</div>
         </div>
-        <div class="section"></div>
+        <div class="section">
+            <div class="article">
+                <div class="image"></div>
+                <div class="texts">
+                    <div class="title">segment title</div>
+                    <div class="note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla incidunt nisi mollitia quasi, sequi magnam consequatur neque repudiandae voluptatem omnis ducimus nihil ea sit exercitationem quia labore distinctio cumque praesentium.</div>
+                </div>
+            </div>
+            <div class="article">
+                <div class="image"></div>
+                <div class="texts">
+                    <div class="title">segment title</div>
+                    <div class="note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla incidunt nisi mollitia quasi, sequi magnam consequatur neque repudiandae voluptatem omnis ducimus nihil ea sit exercitationem quia labore distinctio cumque praesentium.</div>
+                </div>
+            </div>
+            <div class="article">
+                <div class="image"></div>
+                <div class="texts">
+                    <div class="title">segment title</div>
+                    <div class="note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla incidunt nisi mollitia quasi, sequi magnam consequatur neque repudiandae voluptatem omnis ducimus nihil ea sit exercitationem quia labore distinctio cumque praesentium.</div>
+                </div>
+            </div>
+            <div class="article">
+                <div class="image"></div>
+                <div class="texts">
+                    <div class="title">segment title</div>
+                    <div class="note">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla incidunt nisi mollitia quasi, sequi magnam consequatur neque repudiandae voluptatem omnis ducimus nihil ea sit exercitationem quia labore distinctio cumque praesentium.</div>
+                </div>
+            </div>
+        </div>
    </div>
    
    <!-- 푸터 -->
