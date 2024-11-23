@@ -1,82 +1,148 @@
 @import url('./all.min.css');
 /* 헤더탑 */
-div.hdrTop{}
-div.hdrTop>div.icons{}
-div.hdrTop>div.icons>i{}
-div.hdrTop>nav{}
-div.hdrTop>nav>h4{}
+
+/* bgc tap */
+div.hdrTopWrap{
+    background-color: #333333;
+}
+div.hdrTopWrap>div.hdrTop{
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+div.hdrTopWrap>div.hdrTop>div.icons{}
+div.hdrTopWrap>div.hdrTop>div.icons>i{}
+div.hdrTopWrap>div.hdrTop>nav{
+    display: flex;
+}
+div.hdrTopWrap>div.hdrTop>nav>h4{}
 
 /* 헤더 */
-header.hdr{}
-header.hdr>h1{}
-header.hdr>nav{}
-header.hdr>nav>h4{}
-header.hdr>nav>h4>i{}
+div.hdrWrap{
+    background-color: #968A9E;
+}
+div.hdrWrap>header.hdr{
+ width: 80%;
+ max-width: 1080px;
+ margin: 0 auto;
+ display: flex;
+ justify-content: space-between;
+}
+div.hdrWrap>header.hdr>h1{}
+div.hdrWrap>header.hdr>nav{
+    display: flex;
+}
+div.hdrWrap>header.hdr>nav>h4{}
+div.hdrWrap>header.hdr>nav>h4>i{}
 
 
 /* 컨텐츠 공통 */
-div.content{}
-div.content>header{}
-div.content>header>h2{}
-div.content>header>p{}
-div.content>section{}
-div.content>section>article{}
-div.content>section>article>div.image{}
-div.content>section>article>div.texts{}
-div.content>section>article>div.texts>h3{}
-div.content>section>article>div.texts>h4{}
-div.content>section>article>div.texts>p{}
-div.content>section>article>div.texts>div.icons{}
-div.content>section>article>div.texts>div.icons>i{}
+div.cntWrap{}
+div.cntWrap>div.content{
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+div.cntWrap>div.content>header{}
+div.cntWrap>div.content>header>h2{}
+div.cntWrap>div.content>header>p{}
+div.cntWrap>div.content>section{}
+div.cntWrap>div.content>section>article{}
+div.cntWrap>div.content>section>article>div.image{}
+div.cntWrap>div.content>section>article>div.texts{}
+div.cntWrap>div.content>section>article>div.texts>h3{}
+div.cntWrap>div.content>section>article>div.texts>h4{}
+div.cntWrap>div.content>section>article>div.texts>p{}
+div.cntWrap>div.content>section>article>div.texts>div.icons{}
+div.cntWrap>div.content>section>article>div.texts>div.icons>i{}
 
 
 /* 컨텐츠1 */
-div.content.cnt1{}
-div.content.cnt1>header{}
-div.content.cnt1>header>h2{}
-div.content.cnt1>header>p{}
-div.content.cnt1>section{}
-div.content.cnt1>section>div.artTop{}
-div.content.cnt1>section>div.artTop>article{}
-div.content.cnt1>section>div.artTop>article>div.image{}
-div.content.cnt1>section>div.artTop>article>div.texts{}
-div.content.cnt1>section>div.artTop>article>div.texts>h3{}
-div.content.cnt1>section>div.artTop>article>div.texts>h4{}
-div.content.cnt1>section>div.artTop>article>div.texts>p{}
-div.content.cnt1>section>div.artTop>article>div.texts>div.icons{}
-div.content.cnt1>section>div.artTop>article>div.texts>div.icons>i{}
-div.content.cnt1>section>div.artBtm{}
-div.content.cnt1>section>div.artBtm>article{}
-div.content.cnt1>section>div.artBtm>article>div.image{}
-div.content.cnt1>section>div.artBtm>article>div.texts{}
-div.content.cnt1>section>div.artBtm>article>div.texts>h3{}
-div.content.cnt1>section>div.artBtm>article>div.texts>p{}
-div.content.cnt1>section>div.artBtm>article>div.texts>p{}
-div.content.cnt1>section>div.artBtm>article>div.texts>div.icons{}
-div.content.cnt1>section>div.artBtm>article>div.texts>div.icons>i{}
+div.cntWrap.wrap1{}
+div.cntWrap.wrap1>div.content.cnt1{}
+div.cntWrap.wrap1>div.content.cnt1>header{}
+div.cntWrap.wrap1>div.content.cnt1>header>h2{}
+div.cntWrap.wrap1>div.content.cnt1>header>p{}
+div.cntWrap.wrap1>div.content.cnt1>section{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artTop{
+    display: flex;
+    column-gap: 20px;
+}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artTop>article{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artTop>article>div.image{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artTop>article>div.texts{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artTop>article>div.texts>h3{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artTop>article>div.texts>h4{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artTop>article>div.texts>p{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artTop>article>div.texts>div.icons{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artTop>article>div.texts>div.icons>i{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artBtm{
+    display: flex;
+    column-gap: 20px;
+}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artBtm>article{
+    /* bgc tap  컨트롤+ 스페이스바 */
+    background-color: cornflowerblue;
+}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artBtm>article>div.image{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artBtm>article>div.texts{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artBtm>article>div.texts>h3{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artBtm>article>div.texts>p{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artBtm>article>div.texts>p{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artBtm>article>div.texts>div.icons{}
+div.cntWrap.wrap1>div.content.cnt1>section>div.artBtm>article>div.texts>div.icons>i{}
 
 /* 컨텐츠2 */
-div.content.cnt2{}
-div.content.cnt2>header{}
-div.content.cnt2>header>h2{}
-div.content.cnt2>header>p{}
-div.content.cnt2>section{}
-div.content.cnt2>section>article{}
-div.content.cnt2>section>article>div.image{}
-div.content.cnt2>section>article>div.texts{}
-div.content.cnt2>section>article>div.texts>h3{}
-div.content.cnt2>section>article>div.texts>h4{}
-div.content.cnt2>section>article>div.texts>p{}
-div.content.cnt2>section>article>div.texts>div.button{}
+div.cntWrap.wrap2{}
+div.cntWrap.wrap2>div.content.cnt2{}
+div.cntWrap.wrap2>div.content.cnt2>header{
+    background-color: #92899A;
+}
+div.cntWrap.wrap2>div.content.cnt2>header>h2{}
+div.cntWrap.wrap2>div.content.cnt2>header>p{}
+div.cntWrap.wrap2>div.content.cnt2>section{}
+div.cntWrap.wrap2>div.content.cnt2>section>article{
+    display: flex;
+}
+div.cntWrap.wrap2>div.content.cnt2>section>article>div.image{}
+div.cntWrap.wrap2>div.content.cnt2>section>article>div.texts{}
+div.cntWrap.wrap2>div.content.cnt2>section>article>div.texts>h3{}
+div.cntWrap.wrap2>div.content.cnt2>section>article>div.texts>h4{}
+div.cntWrap.wrap2>div.content.cnt2>section>article>div.texts>p{}
+div.cntWrap.wrap2>div.content.cnt2>section>article>div.texts>div.button{}
 
 /* 컨텐츠3 */
-div.content.cnt3{}
-div.content.cnt3>header{}
-div.content.cnt3>header>h2{}
-div.content.cnt3>header>p{}
-div.content.cnt3>section{}
-div.content.cnt3>section>article{}
-div.content.cnt3>section>article>div.image{}
-div.content.cnt3>section>article>div.texts{}
-div.content.cnt3>section>article>div.texts>h3{}
-div.content.cnt3>section>article>div.texts>p{}
+div.cntWrap.wrap3{}
+div.cntWrap.wrap3>div.content.cnt3{}
+div.cntWrap.wrap3>div.content.cnt3>header{}
+div.cntWrap.wrap3>div.content.cnt3>header>h2{}
+div.cntWrap.wrap3>div.content.cnt3>header>p{}
+div.cntWrap.wrap3>div.content.cnt3>section{
+    display: flex;
+    column-gap: 20px;
+}
+div.cntWrap.wrap3>div.content.cnt3>section>article{
+
+}
+div.cntWrap.wrap3>div.content.cnt3>section>article>div.image{}
+div.cntWrap.wrap3>div.content.cnt3>section>article>div.texts{}
+div.cntWrap.wrap3>div.content.cnt3>section>article>div.texts>h3{}
+div.cntWrap.wrap3>div.content.cnt3>section>article>div.texts>p{}
+
+
+/* 푸터 */
+div.ftrWrap{
+    background-color: #92899A;
+}
+div.ftrWrap>footer{
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+div.ftrWrap>footer>h4{}
+div.ftrWrap>footer>p{}
+div.ftrWrap>footer>div.sns{}
+div.ftrWrap>footer>div.sns>i{}
