@@ -1,0 +1,30 @@
+/* 헤더탑 */
+div.hdrTopWrap{}
+div.hdrTopWrap>div.hdrTop{}
+div.hdrTopWrap>div.hdrTop>div.icons{}
+div.hdrTopWrap>div.hdrTop>div.icons>i{}
+div.hdrTopWrap>div.hdrTop>nav{}
+div.hdrTopWrap>div.hdrTop>h4{}
+
+
+/* 헤더 */
+div.hdrWrap{}
+div.hdrWrap>header.hdr{}
+div.hdrWrap>header.hdr>h1{}
+div.hdrWrap>header.hdr>nav{}
+div.hdrWrap>header.hdr>nav>h4{}
+div.hdrWrap>header.hdr>nav>h4>i{}
+
+/* 컨텐츠 공통 */
+div.cntWrap{}
+div.cntWrap>div.content{}
+div.cntWrap>div.content>header{}
+div.cntWrap>div.content>header>h2{}
+div.cntWrap>div.content>header>p{}
+div.cntWrap>div.content>section{}
+div.cntWrap>div.content>section>article{}
+div.cntWrap>div.content>section>article>div.image{}
+div.cntWrap>div.content>section>article>div.texts{}
+div.cntWrap>div.content>section>article>div.texts>h3{}
+div.cntWrap>div.content>section>article>div.texts>h4{}
+div.cntWrap>div.content>section>article>div.texts>p{}
