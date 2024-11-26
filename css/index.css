@@ -33,7 +33,7 @@ div.hdrTopWrap>div.hdrTop>h5>i{
         margin-left: calc(100% - 44px);
     }
     100%{
-        margin-left: -44px;
+        margin-left: -50px;
     }
 }
 
@@ -73,7 +73,9 @@ div.hdrWrap>header>nav>h4:nth-of-type(4){
     font-size: 30px;
 }
 
-div.cntWrap{}
+div.cntWrap{
+    margin-top: 80px;
+}
 div.cntWrap>div.content{
     width: 80%;
     max-width: 1080px;
@@ -132,7 +134,7 @@ div.cntWrap>div.content>section article>div.texts>p{
 
 /* Content Wrapper 1 */
 div.cntWrap.wrap1 {
-    margin-top: 120px;
+    margin-top: 180px;
 }
 div.cntWrap.wrap1 > div.content.cnt1 {}
 div.cntWrap.wrap1 > div.content.cnt1 > header {}
@@ -194,7 +196,9 @@ div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article > div.text
     padding: 40px 20px;
 }
 div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article > div.texts > h3 {}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article > div.texts > p {}
+div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article > div.texts > p {
+    height: 80px;
+}
 
 /* Content Wrapper 2 */
 div.cntWrap.wrap2 {}
@@ -259,6 +263,7 @@ div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.texts > div.butto
     text-transform: uppercase;
     border-radius: 20px;
     margin-top: 20px;
+    cursor: pointer;
 
 }
 
@@ -432,12 +437,18 @@ div.ftrWrap > footer > div.sns > i {
     div.hdrWrap>header>nav>h4:nth-of-type(4){
         display: block;
     }
+    div.cntWrap{
+        margin-top: 40px;
+    }
     div.cntWrap>div.content>header>h2{
         line-height: 40px;
         font-size: 25px;
     }
     div.cntWrap>div.content>section{
         margin-top: 20px;
+    }
+    div.cntWrap.wrap1{
+        margin-top: 140px;
     }
     div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article > div.texts{
         display: none;
