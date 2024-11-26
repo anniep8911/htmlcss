@@ -1,5 +1,7 @@
 @import url('./all.min.css');
 @import url('./reset.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
+
 div.hdrTopWrap{
     background-color: #212517;
     position:fixed;
@@ -43,6 +45,9 @@ div.hdrWrap{
     position:fixed;
     width: 100%;
     top: 40px;
+    font-family: "Mountains of Christmas", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 div.hdrWrap>header{
     width: 80%;
@@ -67,6 +72,7 @@ div.hdrWrap>header>nav{
 }
 div.hdrWrap>header>nav>h4{
     font-size: 20px;
+    cursor: pointer;
 }
 div.hdrWrap>header>nav>h4:nth-of-type(4){
     display: none;
@@ -83,6 +89,7 @@ div.cntWrap>div.content{
 }
 div.cntWrap>div.content>header{
     margin-top: 40px;
+    
 }
 div.cntWrap>div.content>header>h2{
     line-height: 80px;
@@ -91,6 +98,9 @@ div.cntWrap>div.content>header>h2{
     font-weight: bold;
     text-align: center;
     text-transform: capitalize;
+    font-family: "Mountains of Christmas", serif;
+    font-weight: 700;
+    font-style: normal;
 }
 div.cntWrap>div.content>header>p{
     font-size: 12px;
@@ -118,6 +128,9 @@ div.cntWrap>div.content>section article>div.texts>h3{
     font-weight: bold;
     line-height: 40px;
     text-transform: capitalize;
+    font-family: "Mountains of Christmas", serif;
+    font-weight: 700;
+    font-style: normal;
 }
 div.cntWrap>div.content>section article>div.texts>h4{
     font-size: 14px;
@@ -264,7 +277,11 @@ div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.texts > div.butto
     border-radius: 20px;
     margin-top: 20px;
     cursor: pointer;
-
+    transition: background-color 0.8s;
+    
+}
+div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.texts > div.button:hover{
+    background-color: #a31f30;
 }
 
 /* Content Wrapper 3 */
@@ -324,6 +341,9 @@ div.ftrWrap > footer {
     max-width: 1080px;
     margin: 0 auto;
     padding: 40px 0px 80px;
+    font-family: "Mountains of Christmas", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 div.ftrWrap > footer > h4 {
     font-size: 30px;
@@ -348,6 +368,8 @@ div.ftrWrap > footer > div.sns {
 div.ftrWrap > footer > div.sns > i {
     line-height: 40px;
     font-size: 40px;
+    margin-left: 20px;
+    cursor: pointer;
 }
 
 
