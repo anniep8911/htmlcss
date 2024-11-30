@@ -2,504 +2,355 @@
 @import url('./reset.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
 
-div.hdrTopWrap{
+div.hdrTopWrap {
     background-color: #212517;
-    position:fixed;
-    width: 100%;
-    top: 0px;
 }
-div.hdrTopWrap>div.hdrTop{
+
+div.hdrTopWrap > div.hdrTop {
     width: 80%;
     max-width: 1080px;
     margin: 0 auto;
-    background-image: url('../image/ball.png');
-    background-repeat: repeat-x;
-    background-size: 109px 109px;
-    background-position: 40%;
-    overflow: hidden;
-}
-div.hdrTopWrap>div.hdrTop>h5{
-    margin-left: calc(100% - 44px);
-    width: 44px;
-    height: 40px;
-    padding-top: 10px;
-    animation: move 3s infinite linear;
-}
-div.hdrTopWrap>div.hdrTop>h5>i{
-    color: #fff;
-    font-size: 35px;
+    line-height: 40px;
+    color: white;
 }
 
-@keyframes move{
+div.hdrTopWrap > div.hdrTop > h5 {
+    font-size: 35px;
+    width: fit-content;
+    margin-left: 100%;
+    animation: move 5s infinite linear;
+}
+
+@keyframes move {
     0%{
-        margin-left: calc(100% - 44px);
+        margin-left: 100%;
     }
     100%{
-        margin-left: -50px;
+        margin-left: 0%;
     }
 }
 
-
-div.hdrWrap{
-    background-color: #a31f30;
-    position:fixed;
-    width: 100%;
-    top: 40px;
-    font-family: "Mountains of Christmas", serif;
-    font-weight: 400;
-    font-style: normal;
+div.headerWrap {
+    background-color: #A31F30;
 }
-div.hdrWrap>header{
-    width: 80%;
-    max-width: 1080px;
-    margin: 0 auto;
+
+div.headerWrap > header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+    color: white;
 }
-div.hdrWrap>header>h1{
-    line-height: 80px;
+
+div.headerWrap > header > h1 {
+    font-family: "Mountains of Christmas", serif;
     text-transform: capitalize;
-    color: #fff;
+    line-height: 80px;
     font-size: 25px;
-
+    font-weight: bold;
 }
-div.hdrWrap>header>nav{
+
+div.headerWrap > header > nav {
     display: flex;
-    gap: 20px;
     line-height: 80px;
-    text-transform: capitalize;
-    color: #fff;
-}
-div.hdrWrap>header>nav>h4{
-    font-size: 20px;
-    cursor: pointer;
-}
-div.hdrWrap>header>nav>h4:nth-of-type(4){
-    display: none;
-    font-size: 30px;
+    column-gap: 20px;
 }
 
-div.cntWrap{
+div.headerWrap > header > nav > h4 {
+    font-family: "Mountains of Christmas", serif;
+    text-transform: capitalize;
+    line-height: 40px;
+}
+
+div.cntWrap {
+    /* 스타일 추가 */
+}
+
+div.cntWrap.wrap1 {
+    /* 스타일 추가 */
     margin-top: 80px;
 }
-div.cntWrap>div.content{
+
+div.cntWrap.wrap1 > div.content.cnt01 {
     width: 80%;
     max-width: 1080px;
     margin: 0 auto;
 }
-div.cntWrap>div.content>header{
-    margin-top: 40px;
-    
+
+div.cntWrap.wrap1 > div.content.cnt01 > header {
+    /* 스타일 추가 */
 }
-div.cntWrap>div.content>header>h2{
-    line-height: 80px;
-    text-align: center;
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-    text-transform: capitalize;
+
+div.cntWrap.wrap1 > div.content.cnt01 > header > h2 {
     font-family: "Mountains of Christmas", serif;
-    font-weight: 700;
-    font-style: normal;
+    text-transform: capitalize;
+    line-height: 80px;
+    font-size: 40px;
+    text-align: center;
 }
-div.cntWrap>div.content>header>p{
+
+div.cntWrap.wrap1 > div.content.cnt01 > header > p {
+    /* 스타일 추가 */
+    line-height: 20px;
     font-size: 12px;
     width: calc(100% / 12 * 6);
-    margin: 0 auto;
-    line-height: 20px;
-    text-align: center;
-    overflow: hidden;
     height: 40px;
-
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
 }
-div.cntWrap>div.content>section{
+
+div.cntWrap.wrap1 > div.content.cnt01 > section {
+    /* 스타일 추가 */
     margin-top: 40px;
 }
 
-div.cntWrap>div.content>section article{}
-div.cntWrap>div.content>section article>div.image{
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop {
+    display: flex;
+    column-gap: 20px;
 }
-div.cntWrap>div.content>section article>div.texts{}
-div.cntWrap>div.content>section article>div.texts>h3{
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article {
+    /* 스타일 추가 */
+}
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article > div.image {
+    /* 스타일 추가 */
+    height: 320px;
+    background-color: #ccc;
+}
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article > div.texts {
+    /* 스타일 추가 */
+}
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article > div.texts > h3 {
+    /* 스타일 추가 */
+    font-family: "Mountains of Christmas", serif;
     font-size: 25px;
-    font-weight: bold;
     line-height: 40px;
-    text-transform: capitalize;
-    font-family: "Mountains of Christmas", serif;
-    font-weight: 700;
-    font-style: normal;
 }
-div.cntWrap>div.content>section article>div.texts>h4{
-    font-size: 14px;
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article > div.texts > h4 {
+    /* 스타일 추가 */
     line-height: 40px;
-    font-weight: bold;
-    text-transform: capitalize;
 }
-div.cntWrap>div.content>section article>div.texts>p{
-    font-size: 12px;
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article > div.texts > p {
+    /* 스타일 추가 */
     line-height: 20px;
-    overflow: hidden;
+    font-size: 12px;
 }
 
-
-/* Content Wrapper 1 */
-div.cntWrap.wrap1 {
-    margin-top: 180px;
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article > div.texts > div.icons {
+    /* 스타일 추가 */
 }
-div.cntWrap.wrap1 > div.content.cnt1 {}
-div.cntWrap.wrap1 > div.content.cnt1 > header {}
-div.cntWrap.wrap1 > div.content.cnt1 > header > h2 {}
-div.cntWrap.wrap1 > div.content.cnt1 > header > p {}
-div.cntWrap.wrap1 > div.content.cnt1 > section {}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop {
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm {
     display: flex;
     column-gap: 20px;
 }
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article {
-    width: 50%;
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm > article {
+    /* 스타일 추가 */
 }
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article > div.image {
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm > article > div.image {
+    /* 스타일 추가 */
     height: 320px;
+    background-color: #ccc;
 }
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article > div.image.i1 {
-    background-image: url('../image/cnt01_arttop_i1.jpg');
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm > article > div.texts {
+    /* 스타일 추가 */
 }
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article > div.image.i2 {
-    background-image: url('../image/cnt01_arttop_i2.jpg');
-}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article > div.texts {
-    border: 1px solid #D9D9D9;
-    padding: 40px;
-}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article > div.texts > h3 {}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article > div.texts > h4 {}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article > div.texts > p {
-    height: 80px;
-}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article > div.texts > div.icons {}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article > div.texts > div.icons>i {
-    font-size: 22px;
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm > article > div.texts > h3 {
+    /* 스타일 추가 */
     line-height: 40px;
 }
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm {
-    display: flex;
-    column-gap: 20px;
-    margin-top: 40px;
-}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article {
-    width: calc(100% / 3);
-}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article > div.image {
-    height: 320px;
-}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article > div.image.i1{
-    background-image: url('../image/cnt01_artbtm_i1.jpg');
-}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article > div.image.i2{
-    background-image: url('../image/cnt01_artbtm_i2.jpg');
-}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article > div.image.i3{
-    background-image: url('../image/cnt01_artbtm_i3.jpg');
-}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article > div.texts {
-    border: 1px solid #D9D9D9;
-    padding: 40px 20px;
-}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article > div.texts > h3 {}
-div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article > div.texts > p {
-    height: 80px;
+
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm > article > div.texts > p {
+    /* 스타일 추가 */
+    line-height: 20px;
+    font-size: 12px;
 }
 
-/* Content Wrapper 2 */
-div.cntWrap.wrap2 {}
-div.cntWrap.wrap2 > div.content.cnt2 {
-    width: 100%;
-    max-width: 100vw;
+div.cntWrap.wrap2 {
+    /* 스타일 추가 */
+    margin-top: 80px;
 }
-div.cntWrap.wrap2 > div.content.cnt2 > header {
-   width: 100%;
-   background-image: url('../image/cnt02_bg.jpg');
-   background-size: 640px;
-   background-repeat: repeat-x;
-   padding-top: 80px;
-   padding-bottom: 320px;
-   color: #fff;
-}
-div.cntWrap.wrap2 > div.content.cnt2 > header > h2 {
-}
-div.cntWrap.wrap2 > div.content.cnt2 > header > p {
-    width: calc(80% / 12 * 6);
-}
-div.cntWrap.wrap2 > div.content.cnt2 > section {
+
+div.cntWrap.wrap2 > div.content.cnt02 {
     width: 80%;
     max-width: 1080px;
     margin: 0 auto;
-    margin-top: -280px;
-}
-div.cntWrap.wrap2 > div.content.cnt2 > section > article {
-    background-color: #fff;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    display: flex;
-}
-div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.image {
-    width: 50%;
-    overflow: hidden;
-    height: 440px;
-}
-div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.image >video{
-    height: 100%;
-}
-div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.texts {
-    width: 50%;
-    padding: 80px calc(100% / 12);
-    text-align: center;
-}
-div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.texts > h3 {
-
-}
-div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.texts > h4 {
-    line-height: 40px;
-}
-div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.texts > p {
-    height: 120px;
-    margin-top: 20px;
-}
-div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.texts > div.button {
-    font-size: 24px;
-    text-align: center;
-    line-height: 40px;
-    background-color: #212517;
-    color: #fff;
-    text-transform: uppercase;
-    border-radius: 20px;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: background-color 0.8s;
-    
-}
-div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.texts > div.button:hover{
-    background-color: #a31f30;
 }
 
-/* Content Wrapper 3 */
-div.cntWrap.wrap3 {}
-div.cntWrap.wrap3 > div.content.cnt3 {}
-div.cntWrap.wrap3 > div.content.cnt3 > header {}
-div.cntWrap.wrap3 > div.content.cnt3 > header > h2 {}
-div.cntWrap.wrap3 > div.content.cnt3 > header > p {}
-div.cntWrap.wrap3 > div.content.cnt3 > section {
-    display: flex;
-    column-gap: 20px;
-}
-div.cntWrap.wrap3 > div.content.cnt3 > section > article {
-    width: calc(100% / 4);
-    height: 200px;
-    overflow: hidden;
-}
-div.cntWrap.wrap3 > div.content.cnt3 > section > article > div.image {
-    height: 200px;
-}
-div.cntWrap.wrap3 > div.content.cnt3 > section > article > div.image.i1 {
-    background-image: url('../image/cnt03_i1.jpg');
-}
-div.cntWrap.wrap3 > div.content.cnt3 > section > article > div.image.i2 {
-    background-image: url('../image/cnt03_i2.jpg');
-}
-div.cntWrap.wrap3 > div.content.cnt3 > section > article > div.image.i3 {
-    background-image: url('../image/cnt03_i3.jpg');
-}
-div.cntWrap.wrap3 > div.content.cnt3 > section > article > div.image.i4 {
-    background-image: url('../image/cnt03_i4.jpg');
-}
-div.cntWrap.wrap3 > div.content.cnt3 > section > article > div.texts {
-    background-color: rgba(51,51,51,.4);
-    padding: 40px 20px;    
-    color: #fff;
-    transition: margin-top 0.5s;
-    cursor: pointer;
-}
-div.cntWrap.wrap3 > div.content.cnt3 > section > article > div.texts > h3 {}
-div.cntWrap.wrap3 > div.content.cnt3 > section > article > div.texts > p {
-    height: 80px;
-}
-
-div.cntWrap.wrap3 > div.content.cnt3 > section > article:hover >div.texts{
-    margin-top: -200px;
-}
-
-/* Footer */
-div.ftrWrap {
-    background-color: #A31F30;
-    margin-top: 40px;
-}
-div.ftrWrap > footer {
-    color: #fff;
-    width: 80%;
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 40px 0px 80px;
+div.cntWrap.wrap2 > div.content.cnt02 > header {
+    /* 스타일 추가 */
     font-family: "Mountains of Christmas", serif;
-    font-weight: 400;
-    font-style: normal;
+    color: white;
 }
-div.ftrWrap > footer > h4 {
-    font-size: 30px;
+
+div.cntWrap.wrap2 > div.content.cnt02 > header > h2 {
+    font-family: "Mountains of Christmas", serif;
     text-transform: capitalize;
-    font-weight: bold;
-    text-align: center;
     line-height: 80px;
-}
-div.ftrWrap > footer > p {
-    font-size: 12px;
-    overflow: hidden;
-    height: 40px;
-    width:calc(100% / 12 * 8);
-    margin: 0 auto;
-    line-height: 20px;
-    text-align: center;
-}
-div.ftrWrap > footer > div.sns {
-    text-align: center;
-    line-height: 80px;
-}
-div.ftrWrap > footer > div.sns > i {
-    line-height: 40px;
     font-size: 40px;
-    margin-left: 20px;
-    cursor: pointer;
+    text-align: center;
 }
 
-
-
-@media (max-width:1024px) {
-    div.hdrTopWrap>div.hdrTop{
-        width: 90%;
-        max-width: 600px;
-    }
-    div.hdrWrap>header{
-        width: 90%;
-        max-width: 600px;
-    }
-    div.cntWrap>div.content{
-        width: 90%;
-        max-width: 600px;
-    }
-    div.ftrWrap > footer{
-        width: 90%;
-        max-width: 600px;
-    }
-    div.cntWrap>div.content>header>p{
-        width: 100%;
-    }
-    div.cntWrap.wrap2 > div.content.cnt2 > header > p{
-        width: 90%;
-        max-width: 600px;
-    }
-    div.cntWrap.wrap2 > div.content.cnt2 > section{
-        width: 90%;
-        max-width: 600px;
-    }
-
-    div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article{
-        width: 100%;
-    }
-    div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article:nth-of-type(2){
-        display: none;
-    }
-    div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article{
-        width: 50%;
-    }
-    div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm > article:nth-of-type(3){
-        display: none;
-    }
-    div.cntWrap.wrap2 > div.content.cnt2 > section > article{
-        display: block;
-    }
-    div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.texts{
-        display: none;
-    }
-    div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.image{
-        width: 100%;
-    }
-    div.cntWrap.wrap3 > div.content.cnt3 > header{
-        display: none;
-    }
-    div.cntWrap.wrap3 > div.content.cnt3 > section{
-        margin-top: 80px;
-        flex-wrap: wrap;
-        row-gap: 20px;
-    }
-    div.cntWrap.wrap3 > div.content.cnt3 > section > article{
-        width: calc(50% - 20px);
-
-    }
-    div.ftrWrap > footer > p{
-        width: calc(100% / 7 * 5);
-    }
-    div.ftrWrap > footer > div.sns > i:nth-of-type(1){
-        margin-left: 0;
-    }
-    div.ftrWrap > footer > div.sns > i{
-        margin-left: 20px;
-    }
-
-
-
-
-
+div.cntWrap.wrap2 > div.content.cnt02 > header > p {
+    /* 스타일 추가 */
+    line-height: 20px;
+    font-size: 12px;
+    width: calc(100% / 12 * 6);
+    height: 40px;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
 }
 
-@media (max-width:420px) {
-    div.hdrWrap>header>nav>h4{
-        display: none;
-    }
-    div.hdrWrap>header>nav>h4:nth-of-type(4){
-        display: block;
-    }
-    div.cntWrap{
-        margin-top: 40px;
-    }
-    div.cntWrap>div.content>header>h2{
-        line-height: 40px;
-        font-size: 25px;
-    }
-    div.cntWrap>div.content>section{
-        margin-top: 20px;
-    }
-    div.cntWrap.wrap1{
-        margin-top: 140px;
-    }
-    div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article > div.texts{
-        display: none;
-    }
-    div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop > article:nth-of-type(2){
-        display: block;
-    }
-    div.cntWrap.wrap1 > div.content.cnt1 > section > div.artTop{
-        flex-wrap: wrap;
-        row-gap: 20px;
-    }
-    div.cntWrap.wrap1 > div.content.cnt1 > section > div.artBtm{
-        display: none;
-    }
-    div.cntWrap.wrap2 > div.content.cnt2 > section{
-        margin-top: 0;
-    }
-    div.cntWrap.wrap2 > div.content.cnt2 > header{
-        padding: 80px 0px;
-        background-size: cover;
-    }
-    div.cntWrap.wrap2 > div.content.cnt2 > section > article > div.image{
-        height: 240px;
-    }
-    div.cntWrap.wrap3 > div.content.cnt3 > section{
-        margin-top: 20px;
-        flex-wrap: wrap;
-    }
-    div.cntWrap.wrap3 > div.content.cnt3 > section > article{
-        width: 100%;
-    }
+div.cntWrap.wrap2 > div.content.cnt02 > section > article {
+    display: flex;
+    /* 스타일 추가 */
+}
+
+div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.image {
+    height: 440px;
+    width: 50%;
+    background-color: #ccc;
+}
+
+div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts {
+    width: 50%;
+}
+
+div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts > h3 {
+    /* 스타일 추가 */
+    font-family: "Mountains of Christmas", serif;
+    font-size: 25px;
+    line-height: 40px;
+}
+
+div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts > h4 {
+    /* 스타일 추가 */
+    line-height: 40px;
+}
+
+div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts > p {
+    /* 스타일 추가 */
+    line-height: 20px;
+    font-size: 12px;
+}
+
+div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts > div.button {
+    /* 스타일 추가 */
+}
+
+div.cntWrap.wrap2 > div.content.cnt02 > section {
+    /* 스타일 추가 */
+    margin-top: 40px;
+}
+
+div.cntWrap.wrap3 {
+    /* 스타일 추가 */
+    margin-top: 80px;
+}
+
+div.cntWrap.wrap3 > div.content.cnt03 {
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+div.cntWrap.wrap3 > div.content.cnt03 > header {
+    /* 스타일 추가 */
+}
+
+div.cntWrap.wrap3 > div.content.cnt03 > header > h2 {
+    font-family: "Mountains of Christmas", serif;
+    text-transform: capitalize;
+    line-height: 80px;
+    font-size: 40px;
+    text-align: center;
+}
+
+div.cntWrap.wrap3 > div.content.cnt03 > header > p {
+    /* 스타일 추가 */
+    line-height: 20px;
+    font-size: 12px;
+    width: calc(100% / 12 * 6);
+    height: 40px;
+    overflow: hidden;
+    margin: 0 auto;
+    text-align: center;
+}
+
+div.cntWrap.wrap3 > div.content.cnt03 > section {
+    display: flex;
+    column-gap: 20px;
+}
+
+div.cntWrap.wrap3 > div.content.cnt03 > section > article {
+    /* 스타일 추가 */
+}
+
+div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.image {
+    height: 200px;
+    background-color: #ccc;
+}
+
+div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.texts {
+    /* 스타일 추가 */
+}
+
+div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.texts > h3 {
+    /* 스타일 추가 */
+    font-family: "Mountains of Christmas", serif;
+    font-size: 25px;
+    line-height: 40px;
+}
+
+div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.texts > p {
+    /* 스타일 추가 */
+    line-height: 20px;
+    font-size: 12px;
+}
+
+div.cntWrap.wrap3 > div.content.cnt03 > section {
+    /* 스타일 추가 */
+    margin-top: 40px;
+}
+
+div.footerWrap {
+    background-color: #A31F30;
+}
+
+div.footerWrap > footer {
+    width: 80%;
+    max-width: 1080px;
+    margin: 0 auto;
+    color: white;
+}
+
+div.footerWrap > footer > h4 {
+    font-family: "Mountains of Christmas", serif;
+    text-transform: capitalize;
+}
+
+div.footerWrap > footer > p {
+    /* 스타일 추가 */
+    font-size: 12px;
+}
+
+div.footerWrap > footer > div.sns {
+    /* 스타일 추가 */
+}
+
+div.footerWrap > footer > div.sns > i {
+    /* 스타일 추가 */
 }
