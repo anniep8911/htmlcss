@@ -6,6 +6,7 @@ div.hdrTopWrap {
     background-color: #212517;
 }
 
+
 div.hdrTopWrap > div.hdrTop {
     width: 80%;
     max-width: 1080px;
@@ -124,6 +125,11 @@ div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article > div.ima
 
 div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article > div.texts {
     /* 스타일 추가 */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: calc(100% / 6 * 0.7);
+    padding-right: calc(100% / 6 * 2);
+    border: 1px solid #D9D9D9;
 }
 
 div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article > div.texts > h3 {
@@ -142,15 +148,19 @@ div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article > div.tex
     /* 스타일 추가 */
     line-height: 20px;
     font-size: 12px;
+    height: 80px;
+    overflow: hidden;
 }
 
 div.cntWrap.wrap1 > div.content.cnt01 > section > div.artTop > article > div.texts > div.icons {
-    /* 스타일 추가 */
+    font-size: 22px;
+    line-height: 40px;
 }
 
 div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm {
     display: flex;
     column-gap: 20px;
+    margin-top: 40px;
 }
 
 div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm > article {
@@ -165,17 +175,31 @@ div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm > article > div.ima
 
 div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm > article > div.texts {
     /* 스타일 추가 */
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 23px;
+    padding-right: calc(100% / 6 * 0.5);
+    border: 1px solid #D9D9D9;
 }
 
 div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm > article > div.texts > h3 {
     /* 스타일 추가 */
     line-height: 40px;
+    font-size: 25px;
+    line-height: 40px;
+    font-family: "Mountains of Christmas", serif;
 }
 
 div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm > article > div.texts > p {
     /* 스타일 추가 */
     line-height: 20px;
     font-size: 12px;
+    height: 80px;
+    overflow: hidden;
+}
+div.cntWrap.wrap1 > div.content.cnt01 > section > div.artBtm > article > div.texts > div.icons {
+    font-size: 22px;
+    line-height: 40px;
 }
 
 div.cntWrap.wrap2 {
@@ -184,15 +208,15 @@ div.cntWrap.wrap2 {
 }
 
 div.cntWrap.wrap2 > div.content.cnt02 {
-    width: 80%;
-    max-width: 1080px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: auto;
 }
 
 div.cntWrap.wrap2 > div.content.cnt02 > header {
     /* 스타일 추가 */
     font-family: "Mountains of Christmas", serif;
     color: white;
+    background-color: #A31F30;
 }
 
 div.cntWrap.wrap2 > div.content.cnt02 > header > h2 {
@@ -227,6 +251,8 @@ div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.image {
 
 div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts {
     width: 50%;
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
 div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts > h3 {
@@ -306,6 +332,8 @@ div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.image {
 
 div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.texts {
     /* 스타일 추가 */
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.texts > h3 {
@@ -319,6 +347,8 @@ div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.texts > p {
     /* 스타일 추가 */
     line-height: 20px;
     font-size: 12px;
+    height: 80px;
+    overflow: hidden;
 }
 
 div.cntWrap.wrap3 > div.content.cnt03 > section {
