@@ -64,6 +64,9 @@ div.headerWrap > header > nav > h4 {
     text-transform: capitalize;
     line-height: 40px;
 }
+div.headerWrap > header > nav > h4:nth-of-type(4){
+    display: none;
+}
 
 div.cntWrap {
     /* 스타일 추가 */
@@ -217,6 +220,8 @@ div.cntWrap.wrap2 > div.content.cnt02 > header {
     font-family: "Mountains of Christmas", serif;
     color: white;
     background-color: #A31F30;
+    padding-top: 80px;
+    padding-bottom: 320px;
 }
 
 div.cntWrap.wrap2 > div.content.cnt02 > header > h2 {
@@ -231,15 +236,23 @@ div.cntWrap.wrap2 > div.content.cnt02 > header > p {
     /* 스타일 추가 */
     line-height: 20px;
     font-size: 12px;
-    width: calc(100% / 12 * 6);
+    width: calc(80% / 12 * 6);
+    max-width: 520px;
     height: 40px;
     overflow: hidden;
     margin: 0 auto;
     text-align: center;
 }
+div.cntWrap.wrap2 > div.content.cnt02 > section{
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1080px;
+    margin-top: -280px;
+}
 
 div.cntWrap.wrap2 > div.content.cnt02 > section > article {
     display: flex;
+    box-shadow: 4px 4px 4px rgba(0,0,0,0.25);
     /* 스타일 추가 */
 }
 
@@ -253,6 +266,9 @@ div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts {
     width: 50%;
     padding-top: 80px;
     padding-bottom: 80px;
+    background-color: #fff;
+    padding: 80px calc(100% / 12);
+    text-align: center;
 }
 
 div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts > h3 {
@@ -260,26 +276,33 @@ div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts > h3 {
     font-family: "Mountains of Christmas", serif;
     font-size: 25px;
     line-height: 40px;
+    font-weight: bold;
+    text-transform: capitalize;
 }
 
 div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts > h4 {
     /* 스타일 추가 */
     line-height: 40px;
+    font-weight: bold;
 }
 
 div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts > p {
     /* 스타일 추가 */
     line-height: 20px;
     font-size: 12px;
+    height: 120px;
+    overflow: hidden;
+    margin-top: 20px;
 }
 
 div.cntWrap.wrap2 > div.content.cnt02 > section > article > div.texts > div.button {
-    /* 스타일 추가 */
-}
-
-div.cntWrap.wrap2 > div.content.cnt02 > section {
-    /* 스타일 추가 */
-    margin-top: 40px;
+    margin-top: 20px;
+    line-height: 40px;
+    background-color: #212517;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 20px;
 }
 
 div.cntWrap.wrap3 {
@@ -323,6 +346,11 @@ div.cntWrap.wrap3 > div.content.cnt03 > section {
 
 div.cntWrap.wrap3 > div.content.cnt03 > section > article {
     /* 스타일 추가 */
+    height: 200px;
+    overflow: hidden;
+}
+div.cntWrap.wrap3 > div.content.cnt03 > section > article:hover div.texts{
+    margin-top: -200px;
 }
 
 div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.image {
@@ -332,8 +360,9 @@ div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.image {
 
 div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.texts {
     /* 스타일 추가 */
-    padding-top: 40px;
-    padding-bottom: 40px;
+    background-color: rgba(51,51,51,0.4);
+    transition: margin-top 0.5s;
+    padding: 40px 20px;
 }
 
 div.cntWrap.wrap3 > div.content.cnt03 > section > article > div.texts > h3 {
@@ -365,22 +394,47 @@ div.footerWrap > footer {
     max-width: 1080px;
     margin: 0 auto;
     color: white;
+    margin-top: 80px;
+    text-align: center;
 }
 
 div.footerWrap > footer > h4 {
     font-family: "Mountains of Christmas", serif;
     text-transform: capitalize;
+    line-height: 80px;
+    font-size: 30px;
 }
 
 div.footerWrap > footer > p {
     /* 스타일 추가 */
     font-size: 12px;
+    line-height: 20px;
+    height: 40px;
+    overflow: hidden;
+    width: calc(100% / 12 * 8);
+    margin: 0 auto;
 }
 
 div.footerWrap > footer > div.sns {
-    /* 스타일 추가 */
+    line-height: 80px;
+    font-size: 40px;
 }
 
 div.footerWrap > footer > div.sns > i {
     /* 스타일 추가 */
+}
+
+
+/* tab */
+@media (max-width:1024px) {
+    div.hdrTopWrap > div.hdrTop, 
+    div.headerWrap > header,
+    div.cntWrap.wrap1 > div.content.cnt01,
+    div.cntWrap.wrap2 > div.content.cnt02 > section,
+    div.cntWrap.wrap3 > div.content.cnt03,
+    div.footerWrap > footer
+    {
+        width: 90%;
+        max-width: 600px;
+    }
 }
