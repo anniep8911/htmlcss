@@ -52,3 +52,59 @@
 .text-multi-line {
   @include ellipsis(3); // 세 줄까지 표시 후 말줄임
 }
+```
+✅ 줄 수에 따라 자동으로 ... 처리
+✅ 반복적인 스타일 코드를 단순화하여 유지보수성 강화
+
+
+###🔹 **. 반응형 믹스인 (디바이스 기준 적용)
+```scss
+// 디바이스 타입을 입력하면 해당 조건에 맞는 스타일 적용
+@mixin responsive($device) {
+  @if $device == "pc" {
+    @media (min-width: 1025px) {
+      width: 80%;
+      max-width: 1080px;
+      margin: 0 auto;
+      @content;
+    }
+  } @else if $device == "tab" {
+    @media (max-width: 1024px) {
+      width: 90%;
+      max-width: 1024px;
+      margin: 0 auto;
+      @content;
+    }
+  } @else if $device == "mob" {
+    @media (max-width: 767px) {
+      width: 90%;
+      max-width: auto;
+      margin: 0 auto;
+      @content;
+    }
+  } @else {
+    @warn "🚨 Error: 올바른 디바이스 타입을 입력하세요! (pc, tab, mob 중 선택)";
+  }
+}
+
+// 사용 예시
+.container {
+  @include responsive("pc") {
+    background-color: lightblue;
+  }
+
+  @include responsive("tab") {
+    background-color: lightgreen;
+  }
+
+  @include responsive("mob") {
+    background-color: lightcoral;
+  }
+}
+```
+✅ 미디어 쿼리를 직접 쓰지 않고 간결하게 관리 가능
+✅ PC, 태블릿, 모바일에 맞춰 자동으로 스타일 적용
+✅ 코드 가독성 & 유지보수 편의성 증가
+
+
+
