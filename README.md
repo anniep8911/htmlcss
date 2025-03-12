@@ -1,9 +1,8 @@
-# UI 개발자 면접용 포트폴리오
-
 ## **1. 소개**
-- **이름:** [이름 입력]
-- **직무:** UI 개발자
+- **이름:** 박정아
+- **직무:** 웹 퍼블리셔
 - **핵심 강점:** SCSS 스타일링, JS 모듈화, 스타일 가이드 제작, 반응형 웹제작, 마이크로 매니징
+- **기술 스택**: HTML, CSS, SCSS, JavaScript (ES5 / ES6), jQuery, Figma, Photoshop, Webpack
 
 ---
 
@@ -27,39 +26,7 @@
 ---
 
 ## **3. SCSS 능력 - 대표 믹스인**
-
-### 🔹 **1. 텍스트 말줄임 처리 믹스인**
-
-```scss
-// 입력받은 줄 수 기준으로 자동 말줄임 처리
-@mixin ellipsis($lines: 1) {
-  @if $lines == 1 {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  } @else {
-    display: -webkit-box;
-    -webkit-line-clamp: $lines;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-}
-
-// 사용 예시
-.text-single-line {
-  @include ellipsis(1); // 한 줄 말줄임
-}
-
-.text-multi-line {
-  @include ellipsis(3); // 세 줄까지 표시 후 말줄임
-}
-```
-
-✅ 줄 수에 따라 자동으로 ... 처리<br>
-✅ 반복적인 스타일 코드를 단순화하여 유지보수성 강화
-
-
-### 🔹 **2.반응형 믹스인 (디바이스 기준 적용)**
+### 🔹 **반응형 믹스인 (디바이스 기준 적용)**
 ```scss
 // 디바이스 타입을 입력하면 해당 조건에 맞는 스타일 적용
 @mixin responsive($device) {
@@ -111,14 +78,22 @@
 ---
 
 ## 4. JS 모듈화 능력 - 대표적 함수 재사용 가이드
-
-📌 차트 설정 공통 가이드
-차트의 영역 가져오기, 라벨 설정, X축 데이터 적용, 변수 설정 등 공통 요소 정리
-유지보수성을 고려하여 재사용 가능한 코드 구조 적용
-팀 내 개발자들이 쉽게 참고할 수 있도록 가이드화
+### 🔹 차트 설정 공통 가이드
 
 
+![image](https://github.com/user-attachments/assets/74ff5107-34bd-4c0a-bc41-cfdb5bbcb9fe)
 
-___
+
+
+✅ 차트의 영역 가져오기, 라벨 설정, X축 데이터 적용, 변수 설정 등 **공통 요소 정리**<br>
+✅ 유지보수성을 고려하여 **재사용 가능한 코드 구조 적용**<br>
+✅ 팀 내 **개발자들이 쉽게 참고**할 수 있도록 가이드화<br>
+
+---
+
+
+
+
+
 
 
