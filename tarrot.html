@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>타로 리딩</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Georgia', serif;
@@ -18,346 +14,297 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
             overflow-x: hidden;
+            color: #e9d5ff;
         }
 
-        /* 배경 애니메이션 */
-        body::before, body::after {
-            content: '';
-            position: fixed;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            filter: blur(80px);
-            z-index: -1;
-            pointer-events: none;
-            animation: float 8s ease-in-out infinite;
+        /* 배경 효과 */
+        body::before {
+            content: ''; position: fixed; top: 0; left: 25%; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+            filter: blur(80px); z-index: -1; animation: float 8s ease-in-out infinite;
         }
-        body::before { top: 0; left: 25%; background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, transparent 70%); }
-        body::after { bottom: 0; right: 25%; background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%); animation-delay: 2s; }
 
         @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-30px); } }
 
         .container {
-            max-width: 1100px;
+            max-width: 1000px;
             width: 95%;
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(168, 85, 247, 0.3);
-            border-radius: 24px;
+            border-radius: 30px;
             padding: 40px 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 10;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
             text-align: center;
         }
 
-        h1 {
-            font-size: 2.5em;
-            background: linear-gradient(135deg, #e9d5ff 0%, #fbcfe8 50%, #e9d5ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
+        h1 { font-size: 2.2em; letter-spacing: 4px; margin-bottom: 10px; color: #fbcfe8; }
+        .subtitle { color: #a855f7; font-size: 1em; margin-bottom: 30px; opacity: 0.8; }
 
-        .subtitle { color: #c084fc; font-size: 1.1em; margin-bottom: 30px; font-weight: 300; }
-
-        .stage-label {
-            display: inline-block;
-            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            margin-bottom: 20px;
-        }
-
-        /* --- 부채꼴 카드 컨테이너 (스크롤 처리) --- */
+        /* --- 자연스럽게 겹치는 부채꼴 뷰포트 --- */
         .cards-fan-viewport {
             width: 100%;
-            overflow-x: auto; /* 넘어가는 카드 스크롤 처리 */
-            padding: 100px 50px 150px 50px; /* 부채꼴 확산 공간 확보 */
-            margin: 20px 0;
-            scrollbar-width: thin;
-            scrollbar-color: rgba(168, 85, 247, 0.4) transparent;
+            height: 350px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+            padding: 20px 100px; /* 양옆 여백으로 중앙 집중도 향상 */
+            cursor: grab;
+            scrollbar-width: none; /* 파이어폭스 스크롤 숨김 */
         }
-
-        .cards-fan-viewport::-webkit-scrollbar { height: 6px; }
-        .cards-fan-viewport::-webkit-scrollbar-thumb { background: rgba(168, 85, 247, 0.4); border-radius: 10px; }
+        .cards-fan-viewport::-webkit-scrollbar { display: none; } /* 크롬 스크롤 숨김 */
 
         .cards-fan-inner {
-            display: flex;
-            justify-content: center;
+            display: inline-flex;
             align-items: flex-end;
-            min-width: 2500px; /* 78장이 겹치며 펼쳐질 충분한 가로 길이 */
-            height: 300px;
+            padding-bottom: 50px;
+            /* 카드 78장이 촘촘하게 겹치도록 간격 조정 */
+            gap: -45px; 
             position: relative;
         }
 
         .card-wrapper {
-            position: absolute;
-            bottom: 0;
-            transform-origin: center 600px; /* 회전축을 아래로 멀리 두어 부드러운 곡선 생성 */
-            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: inline-block;
+            position: relative;
+            /* 앞뒤 카드 겹침을 위해 마이너스 마진 활용 */
+            margin-left: -50px; 
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
+        .card-wrapper:first-child { margin-left: 0; }
+
         .card-button {
-            width: 70px;
-            height: 110px;
-            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            color: white;
-            font-family: 'Georgia', serif;
+            width: 85px;
+            height: 135px;
+            background: linear-gradient(145deg, #6d28d9, #db2777);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: rgba(255, 255, 255, 0.5);
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.2em;
             font-weight: bold;
-            font-size: 1em;
+            position: relative;
+            overflow: hidden;
         }
 
+        /* 호버 시 튀어나오는 연출 */
         .card-wrapper:hover {
-            z-index: 500 !important;
+            z-index: 1000 !important;
+            transform: translateY(-50px) rotate(5deg) scale(1.1);
         }
-
         .card-wrapper:hover .card-button {
-            transform: translateY(-40px) scale(1.1);
-            border-color: #fff;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.8);
+            border-color: #fbcfe8;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.6);
         }
 
         .card-button:disabled {
-            opacity: 0.3;
-            filter: grayscale(1);
-            transform: translateY(20px);
-            cursor: not-allowed;
+            opacity: 0.1;
+            transform: translateY(100px);
+            pointer-events: none;
         }
 
         /* 결과 화면 디자인 */
         .result-display {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-            max-height: 400px;
-            overflow-y: auto;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            scrollbar-width: thin;
         }
 
         .result-card {
-            width: 150px;
-            background: rgba(124, 58, 237, 0.15);
-            border: 1px solid rgba(168, 85, 247, 0.4);
-            border-radius: 12px;
-            padding: 15px;
-            color: #e9d5ff;
+            min-width: 160px;
+            background: rgba(30, 27, 75, 0.5);
+            border: 1px solid #a855f7;
+            border-radius: 15px;
+            padding: 20px;
             text-align: center;
+            animation: slideUp 0.5s ease forwards;
         }
 
-        .card-name { font-weight: bold; margin: 8px 0; font-size: 0.9em; }
-        .card-direction { color: #fbcfe8; font-size: 0.8em; margin-bottom: 5px; }
-        .card-meaning { font-size: 0.75em; color: #d8b4fe; line-height: 1.4; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
         .result-text {
-            background: rgba(168, 85, 247, 0.1);
-            border: 1px solid rgba(168, 85, 247, 0.3);
+            background: rgba(0, 0, 0, 0.3);
             padding: 20px;
             border-radius: 15px;
-            margin: 20px 0;
-            color: #e9d5ff;
-            font-size: 0.9em;
             text-align: left;
-            max-height: 250px;
+            font-size: 0.9em;
+            max-height: 200px;
             overflow-y: auto;
-            white-space: pre-wrap;
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            margin: 20px 0;
         }
 
-        .controls { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
-
-        button.main-btn {
-            padding: 14px 32px;
-            font-family: 'Georgia', serif;
+        .btn {
+            padding: 15px 35px;
+            border-radius: 50px;
             border: none;
-            border-radius: 10px;
             cursor: pointer;
+            font-weight: bold;
             transition: 0.3s;
-            font-weight: 500;
+            margin: 10px;
         }
-
-        .shuffle-btn { background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%); color: white; }
-        .reset-btn { background: rgba(100, 116, 139, 0.5); color: #cbd5e1; }
+        .btn-primary { background: linear-gradient(135deg, #a855f7, #ec4899); color: white; }
+        .btn-secondary { background: rgba(255, 255, 255, 0.1); color: #cbd5e1; }
+        .btn:hover { transform: scale(1.05); filter: brightness(1.2); }
 
         .stage { display: none; }
-        .stage.active { display: block; animation: fadeIn 0.5s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .stage.active { display: block; }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Stage 1 -->
         <div class="stage active" id="stage-intro">
-            <h1>✨ 타로 리딩 ✨</h1>
-            <p class="subtitle">우주의 메시지를 받아보세요</p>
-            <p style="color:#d8b4fe; margin-bottom: 30px;">78장의 카드 중 당신을 이끄는 카드를 고르세요.</p>
-            <div class="controls">
-                <button class="main-btn shuffle-btn" onclick="startShuffle()">🌙 카드 펼치기</button>
-            </div>
+            <h1>✨ MYSTIC TAROT ✨</h1>
+            <p class="subtitle">마음을 가다듬고 카드를 펼쳐보세요</p>
+            <button class="btn btn-primary" onclick="startShuffle()">카드 섞기</button>
         </div>
 
         <!-- Stage 2 -->
         <div class="stage" id="stage-select">
-            <div class="stage-label">🔢 카드를 클릭해서 선택하세요</div>
-            <div class="cards-fan-viewport">
+            <p id="counter" style="color:#fbcfe8; font-weight:bold; margin-bottom:10px;">카드를 선택하세요</p>
+            <div class="cards-fan-viewport" id="viewport">
                 <div class="cards-fan-inner" id="cards-fan"></div>
             </div>
-            <div class="controls">
-                <button class="main-btn shuffle-btn" onclick="showResult()" id="show-result-btn" style="display: none;">결과 확인 →</button>
-                <button class="main-btn reset-btn" onclick="resetAll()">처음부터</button>
+            <div>
+                <button class="btn btn-primary" onclick="showResult()" id="res-btn" style="display:none">결과 확인</button>
+                <button class="btn btn-secondary" onclick="resetAll()">다시 하기</button>
             </div>
         </div>
 
         <!-- Stage 3 -->
         <div class="stage" id="stage-result">
-            <div class="stage-label">🎴 당신의 카드</div>
             <div class="result-display" id="result-display"></div>
             <div class="result-text" id="result-text"></div>
-            <div class="controls">
-                <button class="main-btn shuffle-btn" onclick="copyToClipboard()">📋 결과 복사</button>
-                <button class="main-btn reset-btn" onclick="resetAll()">새로운 리딩</button>
-            </div>
+            <button class="btn btn-primary" onclick="copyToClipboard()">결과 복사</button>
+            <button class="btn btn-secondary" onclick="resetAll()">처음으로</button>
         </div>
     </div>
 
     <script>
-        // 데이터 (기존 데이터 유지)
         const TAROT_CARDS = [
-            { id: 0, name: '광대 (The Fool)', meaning: '새로운 시작, 모험, 순수함' },
-            { id: 1, name: '마술사 (The Magician)', meaning: '능력, 재능, 창조력' },
-            { id: 2, name: '여사제 (The High Priestess)', meaning: '직관, 신비, 내면의 지혜' },
-            { id: 3, name: '황제녀 (The Empress)', meaning: '풍요, 창조성, 모성' },
-            { id: 4, name: '황제 (The Emperor)', meaning: '권위, 구조, 리더십' },
-            { id: 5, name: '교황 (The Hierophant)', meaning: '전통, 영성, 지식' },
-            { id: 6, name: '연인들 (The Lovers)', meaning: '사랑, 선택, 관계' },
-            { id: 7, name: '전차 (The Chariot)', meaning: '의지, 통제, 승리' },
-            { id: 8, name: '힘 (Strength)', meaning: '내적 강함, 인내, 자신감' },
-            { id: 9, name: '은둔자 (The Hermit)', meaning: '명상, 성찰, 진리 추구' },
-            { id: 10, name: '운명의 수레바퀴 (Wheel of Fortune)', meaning: '순환, 운명, 변화' },
-            { id: 11, name: '정의 (Justice)', meaning: '균형, 공정, 인과응보' },
-            { id: 12, name: '매달린 남자 (The Hanged Man)', meaning: '희생, 관점 변화, 잠시의 멈춤' },
-            { id: 13, name: '죽음 (Death)', meaning: '변환, 끝과 시작, 전환' },
-            { id: 14, name: '절제 (Temperance)', meaning: '조화, 균형, 절제' },
-            { id: 15, name: '악마 (The Devil)', meaning: '속박, 물질주의, 제약' },
-            { id: 16, name: '탑 (The Tower)', meaning: '파괴, 급격한 변화, 깨달음' },
-            { id: 17, name: '별 (The Star)', meaning: '희망, 영감, 명확성' },
-            { id: 18, name: '달 (The Moon)', meaning: '환상, 무의식, 직관' },
-            { id: 19, name: '해 (The Sun)', meaning: '성공, 기쁨, 명확함' },
-            { id: 20, name: '심판 (Judgement)', meaning: '재평가, 소명, 깨어남' },
-            { id: 21, name: '세상 (The World)', meaning: '완성, 성취, 새로운 순환' },
-            // ... (나머지 22~77번 카드 데이터도 실제 코드에선 TAROT_CARDS 배열에 모두 포함되어야 합니다)
+            { name: '광대 (The Fool)', meaning: '새로운 시작, 자유' },
+            { name: '마술사 (The Magician)', meaning: '창조력, 자신감' },
+            { name: '여사제 (The High Priestess)', meaning: '직관, 지혜' },
+            { name: '황후 (The Empress)', meaning: '풍요, 모성애' },
+            { name: '황제 (The Emperor)', meaning: '권위, 질서' },
+            { name: '교황 (The Hierophant)', meaning: '전통, 가르침' },
+            { name: '연인들 (The Lovers)', meaning: '사랑, 선택' },
+            { name: '전차 (The Chariot)', meaning: '승리, 전진' },
+            { name: '힘 (Strength)', meaning: '인내, 내면의 힘' },
+            { name: '은둔자 (The Hermit)', meaning: '성찰, 고독' },
+            { name: '운명의 수레바퀴', meaning: '운명적 변화' },
+            { name: '정의 (Justice)', meaning: '균형, 공정' },
+            { name: '매달린 남자', meaning: '새로운 시각, 희생' },
+            { name: '죽음 (Death)', meaning: '종결과 새로운 시작' },
+            { name: '절제 (Temperance)', meaning: '조화, 중용' },
+            { name: '악마 (The Devil)', meaning: '유혹, 속박' },
+            { name: '탑 (The Tower)', meaning: '갑작스러운 변화' },
+            { name: '별 (The Star)', meaning: '희망, 영감' },
+            { name: '달 (The Moon)', meaning: '불안, 직관' },
+            { name: '해 (The Sun)', meaning: '성공, 활력' },
+            { name: '심판 (Judgement)', meaning: '부활, 결단' },
+            { name: '세상 (The World)', meaning: '완성, 성취' }
         ];
-        
-        // 78장 구성을 위해 예시 데이터 확장 (사용자 데이터와 연동)
-        for(let i=22; i<78; i++) {
-            TAROT_CARDS.push({ id: i, name: `타로 카드 ${i}`, meaning: '카드의 상세 의미는 결과에서 확인하세요.' });
-        }
 
-        let state = { selectedCards: [], shuffledDeck: null };
+        // 78장 구성을 위해 마이너 카드 데이터 자동 생성 (실제 사용 시 데이터 교체 가능)
+        const suits = ['Wands', 'Cups', 'Swords', 'Pentacles'];
+        const nums = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Page', 'Knight', 'Queen', 'King'];
+        suits.forEach(s => nums.forEach(n => TAROT_CARDS.push({ name: `${s} ${n}`, meaning: '카드의 상세한 의미를 탐색해보세요.' })));
+
+        let state = { selectedCards: [], shuffledDeck: [] };
 
         function startShuffle() {
             state.shuffledDeck = [...TAROT_CARDS].sort(() => Math.random() - 0.5);
             state.selectedCards = [];
-            createFanCards();
+            renderFan();
             showStage('stage-select');
         }
 
-        function createFanCards() {
-            const fanInner = document.getElementById('cards-fan');
-            fanInner.innerHTML = '';
-            
-            const total = state.shuffledDeck.length;
-            const angleRange = 140; // 부채꼴 펼쳐지는 각도 범위
+        function renderFan() {
+            const fan = document.getElementById('cards-fan');
+            fan.innerHTML = '';
             
             state.shuffledDeck.forEach((card, idx) => {
                 const wrapper = document.createElement('div');
                 wrapper.className = 'card-wrapper';
                 
-                // 78장이 자연스럽게 겹치도록 위치 및 각도 계산
-                const angle = (idx / (total - 1)) * angleRange - (angleRange / 2);
-                const leftPos = (idx / total) * 100;
-                
-                wrapper.style.left = `calc(${leftPos}% - 35px)`;
+                // 부채꼴 각도 조절 (중앙 기준 좁게)
+                const angle = (idx - 39) * 1.5; 
                 wrapper.style.transform = `rotate(${angle}deg)`;
                 wrapper.style.zIndex = idx;
 
                 const btn = document.createElement('button');
                 btn.className = 'card-button';
-                btn.textContent = idx + 1;
+                btn.innerHTML = '✨';
                 btn.onclick = () => selectCard(idx, btn);
                 
                 wrapper.appendChild(btn);
-                fanInner.appendChild(wrapper);
+                fan.appendChild(wrapper);
             });
         }
 
         function selectCard(idx, btn) {
             const card = state.shuffledDeck[idx];
             const isReversed = Math.random() > 0.5;
-            
-            state.selectedCards.push({ index: idx + 1, card: card, reversed: isReversed });
+            state.selectedCards.push({ ...card, reversed: isReversed });
             
             btn.disabled = true;
-            btn.parentElement.style.zIndex = "0";
-
-            if (state.selectedCards.length >= 1) {
-                document.getElementById('show-result-btn').style.display = 'inline-block';
-            }
+            document.getElementById('counter').innerText = `${state.selectedCards.length}개의 카드를 뽑았습니다.`;
+            document.getElementById('res-btn').style.display = 'inline-block';
         }
 
         function showResult() {
             const display = document.getElementById('result-display');
             display.innerHTML = '';
-            let text = '📋 당신의 타로 리딩 결과\n\n═══════════════════════\n\n';
+            let text = "🔮 [타로 리딩 결과]\n";
 
-            state.selectedCards.forEach((item, idx) => {
-                const dir = item.reversed ? '역방향 🔄' : '정방향 ✓';
-                
+            state.selectedCards.forEach((c, i) => {
+                const dir = c.reversed ? '역방향' : '정방향';
                 const cardDiv = document.createElement('div');
                 cardDiv.className = 'result-card';
-                cardDiv.innerHTML = `
-                    <div style="font-weight:bold; color:#fbcfe8">#${item.index}</div>
-                    <div class="card-name">${item.card.name}</div>
-                    <div class="card-direction">${dir}</div>
-                    <div class="card-meaning">${item.card.meaning}</div>
-                `;
+                cardDiv.innerHTML = `<div style="font-size:0.8em; color:#a855f7">#${i+1}</div>
+                                     <div style="margin:10px 0; font-weight:bold">${c.name}</div>
+                                     <div style="font-size:0.8em; color:#fbcfe8">${dir}</div>`;
                 display.appendChild(cardDiv);
-
-                text += `카드 ${idx + 1}\n이름: ${item.card.name}\n방향: ${dir}\n의미: ${item.card.meaning}\n\n`;
+                text += `${i+1}. ${c.name} (${dir})\n`;
             });
 
-            text += '═══════════════════════\n\nai에게 이 내용을 공유해주세요 ✨';
-            document.getElementById('result-text').textContent = text;
+            document.getElementById('result-text').innerText = text + "\n이 결과를 바탕으로 나의 상황을 리딩해줘!";
             showStage('stage-result');
         }
 
         function copyToClipboard() {
-            const text = document.getElementById('result-text').textContent;
-            navigator.clipboard.writeText(text).then(() => alert('복사되었습니다!'));
+            navigator.clipboard.writeText(document.getElementById('result-text').innerText);
+            alert('복사되었습니다!');
         }
 
         function resetAll() {
-            state = { selectedCards: [], shuffledDeck: null };
-            document.getElementById('show-result-btn').style.display = 'none';
             showStage('stage-intro');
+            document.getElementById('res-btn').style.display = 'none';
         }
 
         function showStage(id) {
             document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
         }
+
+        // 마우스 드래그 스크롤 기능
+        const slider = document.getElementById('viewport');
+        let isDown = false; let startX; let scrollLeft;
+        slider.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
+        slider.addEventListener('mouseleave', () => isDown = false);
+        slider.addEventListener('mouseup', () => isDown = false);
+        slider.addEventListener('mousemove', (e) => { if(!isDown) return; e.preventDefault(); const x = e.pageX - slider.offsetLeft; const walk = (x - startX) * 2; slider.scrollLeft = scrollLeft - walk; });
     </script>
 </body>
 </html>
