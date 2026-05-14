@@ -41,7 +41,6 @@
         h1 { font-size: 2.2em; letter-spacing: 4px; margin-bottom: 10px; color: #fbcfe8; }
         .subtitle { color: #a855f7; font-size: 1em; margin-bottom: 30px; opacity: 0.8; }
 
-        /* --- 일자 카드 뷰포트 --- */
         .cards-deck-viewport {
             width: 100%;
             height: 250px;
@@ -51,19 +50,17 @@
             padding: 40px 60px;
             cursor: grab;
             scrollbar-width: none;
-            -ms-overflow-style: none;
         }
         .cards-deck-viewport::-webkit-scrollbar { display: none; }
 
         .cards-deck-inner {
             display: inline-flex;
             align-items: center;
-            padding-right: 50px; /* 마지막 카드 여유 공간 */
+            padding-right: 50px;
         }
 
         .card-wrapper {
             display: inline-block;
-            /* 카드가 겹치는 간격 */
             margin-right: -55px; 
             transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
             position: relative;
@@ -82,15 +79,12 @@
             align-items: center;
             justify-content: center;
             font-size: 1.2em;
-            position: relative;
-            overflow: hidden;
         }
 
-        /* 호버 시 튀어나오는 연출 (일자 버전) */
         .card-wrapper:hover {
             z-index: 1000 !important;
             transform: translateY(-30px);
-            margin-right: -30px; /* 호버 시 공간 확보 */
+            margin-right: -30px;
             margin-left: 25px;
         }
         .card-wrapper:hover .card-button {
@@ -100,21 +94,19 @@
             transform: scale(1.1);
         }
 
+        /* 선택되어 사라질 때의 애니메이션 */
         .card-button:disabled {
             opacity: 0;
             transform: translateY(100px);
             pointer-events: none;
         }
 
-        /* 결과 창 디자인 */
         .result-display {
             display: flex;
             overflow-x: auto;
             gap: 15px;
             padding: 20px;
             margin: 20px 0;
-            scrollbar-width: thin;
-            scrollbar-color: #a855f7 transparent;
         }
 
         .result-card {
@@ -124,7 +116,6 @@
             border-radius: 15px;
             padding: 15px;
             text-align: center;
-            animation: fadeIn 0.5s ease;
         }
 
         .result-text {
@@ -153,7 +144,7 @@
         .btn-secondary { background: rgba(255, 255, 255, 0.1); color: #cbd5e1; }
 
         .stage { display: none; }
-        .stage.active { display: block; }
+        .stage.active { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
@@ -168,7 +159,7 @@
 
         <!-- Stage 2 -->
         <div class="stage" id="stage-select">
-            <p id="counter" style="color:#fbcfe8; font-weight:bold; margin-bottom:10px;">원하는 만큼 카드를 클릭하세요</p>
+            <p id="counter" style="color:#fbcfe8; font-weight:bold; margin-bottom:10px;">카드를 클릭하세요</p>
             <div class="cards-deck-viewport" id="viewport">
                 <div class="cards-deck-inner" id="cards-deck"></div>
             </div>
@@ -188,7 +179,7 @@
     </div>
 
     <script>
-        const TAROT_CARDS = [
+        const BASE_CARDS = [
             { name: '광대 (The Fool)', meaning: '새로운 시작, 자유' },
             { name: '마술사 (The Magician)', meaning: '창조력, 자신감' },
             { name: '여사제 (The High Priestess)', meaning: '직관, 지혜' },
@@ -213,29 +204,42 @@
             { name: '세상 (The World)', meaning: '완성, 성취' }
         ];
 
-        // 78장 구성을 위해 마이너 카드 생성 (사용자 원본 로직 유지)
-        const suits = ['Wands', 'Cups', 'Swords', 'Pentacles'];
-        const nums = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Page', 'Knight', 'Queen', 'King'];
-        suits.forEach(s => nums.forEach(n => TAROT_CARDS.push({ name: `${s} ${n}`, meaning: '상세 의미를 탐색하세요.' })));
+        // 78장 풀 덱 생성 함수
+        function createFullDeck() {
+            const fullDeck = [...BASE_CARDS];
+            const suits = ['Wands', 'Cups', 'Swords', 'Pentacles'];
+            const nums = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Page', 'Knight', 'Queen', 'King'];
+            suits.forEach(s => nums.forEach(n => fullDeck.push({ name: `${s} ${n}`, meaning: '상세 의미 탐색.' })));
+            return fullDeck;
+        }
 
         let state = { selectedCards: [], shuffledDeck: [] };
 
         function startShuffle() {
-            state.shuffledDeck = [...TAROT_CARDS].sort(() => Math.random() - 0.5);
+            // 1. 매번 새로운 덱을 생성하고 섞음 (랜덤 배치 핵심)
+            state.shuffledDeck = createFullDeck().sort(() => Math.random() - 0.5);
             state.selectedCards = [];
+            
+            // 2. 카드 렌더링
             renderDeck();
+            
+            // 3. UI 초기화
+            document.getElementById('counter').innerText = "카드를 클릭하세요";
+            document.getElementById('res-btn').style.display = 'none';
+            document.getElementById('viewport').scrollLeft = 0; // 스크롤 맨 앞으로
+            
             showStage('stage-select');
         }
 
         function renderDeck() {
             const deck = document.getElementById('cards-deck');
-            deck.innerHTML = '';
+            deck.innerHTML = ''; // 기존 카드 엘리먼트 완전 삭제
             
             state.shuffledDeck.forEach((card, idx) => {
                 const wrapper = document.createElement('div');
                 wrapper.className = 'card-wrapper';
                 wrapper.style.zIndex = idx;
-
+                
                 const btn = document.createElement('button');
                 btn.className = 'card-button';
                 btn.innerHTML = '✨';
@@ -251,7 +255,7 @@
             const isReversed = Math.random() > 0.5;
             state.selectedCards.push({ ...card, reversed: isReversed });
             
-            btn.disabled = true;
+            btn.disabled = true; // 클릭 시 사라지는 연출
             document.getElementById('counter').innerText = `${state.selectedCards.length}장의 카드를 선택했습니다.`;
             document.getElementById('res-btn').style.display = 'inline-block';
         }
@@ -260,7 +264,7 @@
             const display = document.getElementById('result-display');
             display.innerHTML = '';
             let text = "📋 [타로 리딩 결과]\n\n";
-
+            
             state.selectedCards.forEach((c, i) => {
                 const dir = c.reversed ? '역방향 🔄' : '정방향 ✓';
                 const cardDiv = document.createElement('div');
@@ -271,19 +275,22 @@
                 display.appendChild(cardDiv);
                 text += `${i+1}. ${c.name} (${dir})\n`;
             });
-
-            document.getElementById('result-text').innerText = text + "\n이 결과를 바탕으로 리딩을 진행해줘!";
+            
+            document.getElementById('result-text').innerText = text + "\n리딩해줘!";
             showStage('stage-result');
         }
 
-        function copyToClipboard() {
-            navigator.clipboard.writeText(document.getElementById('result-text').innerText);
-            alert('결과가 복사되었습니다!');
-        }
-
+        // --- 다시하기 로직 (카드 재배치 포함) ---
         function resetAll() {
+            // 1. 결과 데이터 지우기
+            state.selectedCards = [];
+            document.getElementById('result-display').innerHTML = '';
+            document.getElementById('result-text').innerText = '';
+            
+            // 2. 인트로 화면으로 돌아가서 다시 셔플을 유도하거나, 
+            // 바로 startShuffle()을 실행해서 새 덱을 깔아줄 수 있습니다.
+            // 여기서는 깔끔하게 인트로로 이동시킨 후 사용자가 다시 셔플하게 합니다.
             showStage('stage-intro');
-            document.getElementById('res-btn').style.display = 'none';
         }
 
         function showStage(id) {
@@ -291,7 +298,12 @@
             document.getElementById(id).classList.add('active');
         }
 
-        // 드래그 스크롤 로직
+        function copyToClipboard() {
+            navigator.clipboard.writeText(document.getElementById('result-text').innerText);
+            alert('복사되었습니다!');
+        }
+
+        // 드래그 스크롤
         const slider = document.getElementById('viewport');
         let isDown = false; let startX; let scrollLeft;
         slider.addEventListener('mousedown', (e) => { isDown = true; startX = e.pageX - slider.offsetLeft; scrollLeft = slider.scrollLeft; });
